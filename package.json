@@ -1,13 +1,46 @@
 {
-  "name": "pms_backend",
+  "name": "admin-dashboard-backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Backend API for Admin Dashboard",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx watch src/index.ts",
     "build": "tsc",
-      "start": "node dist/index.js",
-      "dev": "ts-node src/index.ts" 
+    "start": "node dist/index.js",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.18.0",
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-validator": "^7.2.1",
+    "fs": "0.0.1-security",
+    "lucide-react": "0.546.0",
+    "multer": "^1.4.5-lts.1",
+    "next": "16.0.0",
+    "path": "0.12.7",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "tailwind-merge": "3.3.1",
+    "tailwindcss-animate": "1.0.7"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/multer": "^1.4.12",
+    "@types/node": "^22.10.5",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "postcss": "8.5.6",
+    "prisma": "^6.18.0",
+    "tailwindcss": "4.1.16",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
   },
   "repository": {
     "type": "git",
@@ -20,13 +53,5 @@
   "bugs": {
     "url": "https://github.com/choden12/PMS_Backend/issues"
   },
-  "homepage": "https://github.com/choden12/PMS_Backend#readme",
-  "dependencies": {
-    "express": "^5.1.0"
-  },
-  "devDependencies": {
-    "@types/express": "^5.0.3",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
-  }
+  "homepage": "https://github.com/choden12/PMS_Backend#readme"
 }

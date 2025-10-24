@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const selectionProjectController_1 = require("../controllers/selectionProjectController");
+const multer_1 = require("../config/multer");
+const router = (0, express_1.Router)();
+router.get("/", selectionProjectController_1.getAllSelectionProjects);
+router.get("/:id", selectionProjectController_1.getSelectionProjectById);
+router.post("/", multer_1.upload.single("pdf"), selectionProjectController_1.createSelectionProject);
+router.put("/:id", multer_1.upload.single("pdf"), selectionProjectController_1.updateSelectionProject);
+router.delete("/:id", selectionProjectController_1.deleteSelectionProject);
+exports.default = router;
