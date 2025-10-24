@@ -21,19 +21,18 @@ app.use(express.urlencoded({ extended: true }))
 // Serve uploaded files statically
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")))
 
-// 🟢 Welcome route
+//  Welcome route
 app.get("/", (req: Request, res: Response) => {
   res.json({
-    message: "🎉 Welcome to the Admin Dashboard Backend API!",
-    version: "1.0.0",
+    message: "Welcome to the Admin Dashboard Backend API!",
   })
 })
 
 // API Routes
 app.use("/api/projects", projectRoutes)
-app.use("/api/selection-projects", selectionProjectRoutes)
-app.use("/api/users", userRoutes)
-app.use("/api/admins", adminRoutes)
+app.use("/api/selectionprojects", selectionProjectRoutes)
+app.use("/api/user", userRoutes)
+app.use("/api/admin", adminRoutes)
 
 // 404 handler
 app.use((req: Request, res: Response) => {
@@ -54,7 +53,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`🚀 Server is running on http://localhost:${PORT}`)
+  console.log(`Server is running on http://localhost:${PORT}`)
 })
 
 export default app

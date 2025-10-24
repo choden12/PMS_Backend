@@ -1,20 +1,20 @@
 import { Router } from "express"
 import {
-  getAllProjects,
-  getProjectById,
-  createProject,
-  updateProject,
-  deleteProject,
-  getProjectStats,
-} from "../controllers/projectController"
+  getAllSelectionProjects,
+  getSelectionProjectById,
+  createSelectionProject,
+  updateSelectionProject,
+  deleteSelectionProject,
+} from "../controllers/selectionProjectController"
+import { upload } from "../config/multer"
+import { authenticate } from "../middleware/auth"
 
 const router = Router()
 
-router.get("/stats", getProjectStats)
-router.get("/", getAllProjects)
-router.get("/:id", getProjectById)
-router.post("/", createProject)
-router.put("/:id", updateProject)
-router.delete("/:id", deleteProject)
+router.get("/", authenticate, getAllSelectionProjects)
+router.get("/:id", authenticate, getSelectionProjectById)
+router.post("/", authenticate, upload.single("pdf"), createSelectionProject)
+router.put("/:id", authenticate, upload.single("pdf"), updateSelectionProject)
+router.delete("/:id", authenticate, deleteSelectionProject)
 
 export default router

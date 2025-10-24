@@ -39,6 +39,42 @@ export interface Admin {
   avatarUrl?: string
 }
 
+export interface AdminWithPassword extends Admin {
+  password: string
+}
+
+export interface LoginRequest {
+  email: string
+  password: string
+}
+
+export interface RegisterRequest {
+  name: string
+  email: string
+  password: string
+}
+
+export interface AuthResponse {
+  success: boolean
+  token?: string
+  admin?: Admin
+  message?: string
+  error?: string
+}
+
+export interface JwtPayload {
+  adminId: number
+  email: string
+}
+
+declare global {
+  namespace Express {
+    interface Request {
+      admin?: Admin
+    }
+  }
+}
+
 export interface ApiResponse<T> {
   success: boolean
   data?: T

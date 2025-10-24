@@ -9,49 +9,42 @@
     "start": "node dist/index.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
-    "prisma:studio": "prisma studio"
+    "prisma:studio": "prisma studio",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
-    "@prisma/client": "^6.18.0",
-    "class-variance-authority": "0.7.1",
-    "clsx": "2.1.1",
+    "@prisma/client": "^5.22.0",
+    "express": "^4.21.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
-    "express": "^4.21.2",
-    "express-validator": "^7.2.1",
-    "fs": "0.0.1-security",
-    "lucide-react": "0.546.0",
     "multer": "^1.4.5-lts.1",
-    "next": "16.0.0",
+    "express-validator": "^7.2.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
     "path": "0.12.7",
+    "fs": "0.0.1-security",
+    "next": "16.0.0",
     "react": "19.2.0",
     "react-dom": "19.2.0",
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "lucide-react": "0.546.0",
     "tailwind-merge": "3.3.1",
     "tailwindcss-animate": "1.0.7"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
-    "@types/multer": "^1.4.12",
     "@types/node": "^22.10.5",
+    "@types/cors": "^2.8.17",
+    "@types/multer": "^1.4.12",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.7",
+    "prisma": "^5.22.0",
+    "typescript": "^5.7.3",
+    "tsx": "^4.19.2",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
-    "postcss": "8.5.6",
-    "prisma": "^6.18.0",
-    "tailwindcss": "4.1.16",
-    "tsx": "^4.19.2",
-    "typescript": "^5.7.3"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/choden12/PMS_Backend.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/choden12/PMS_Backend/issues"
-  },
-  "homepage": "https://github.com/choden12/PMS_Backend#readme"
+    "tailwindcss": "^4.1.9",
+    "postcss": "8.5.6"
+  }
 }
