@@ -101,9 +101,9 @@ export const login = async (req: Request, res: Response) => {
     }
 
     // Generate JWT token
-    const token = jwt.sign({ adminId: admin.id, email: admin.email } as JwtPayload, JWT_SECRET, {
+    const token = jwt.sign({ adminId: admin.id, email: admin.email } as JwtPayload, JWT_SECRET as Secret, {
       expiresIn: JWT_EXPIRES_IN,
-    })
+    } as SignOptions)
 
     // Remove password from response
     const { password: _, ...adminWithoutPassword } = admin
