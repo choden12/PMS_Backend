@@ -21,12 +21,11 @@ app.use(express.urlencoded({ extended: true }))
 // Serve uploaded files statically
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")))
 
-// Health check endpoint
-app.get("/health", (req: Request, res: Response) => {
+// 🟢 Welcome route
+app.get("/", (req: Request, res: Response) => {
   res.json({
-    success: true,
-    message: "Admin Dashboard API is running",
-    timestamp: new Date().toISOString(),
+    message: "🎉 Welcome to the Admin Dashboard Backend API!",
+    version: "1.0.0",
   })
 })
 
@@ -56,7 +55,6 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 // Start server
 app.listen(PORT, () => {
   console.log(`🚀 Server is running on http://localhost:${PORT}`)
-
 })
 
 export default app
