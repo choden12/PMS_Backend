@@ -12,7 +12,12 @@ export const getAllSelectionProjects = async (req: Request, res: Response) => {
 
     const response: ApiResponse<SelectionProject[]> = {
       success: true,
-      data: projects,
+      data: projects.map((project) => ({
+        ...project,
+        startDate: project.startDate === null ? undefined : project.startDate,
+        endDate: project.endDate === null ? undefined : project.endDate,
+        manager: project.manager === null ? undefined : project.manager,
+      })),
     }
 
     res.json(response)

@@ -40,7 +40,7 @@ export const register = async (req: Request, res: Response) => {
         name,
         email,
         password: hashedPassword,
-      },
+      } as any,
     })
 
     // Generate JWT token
@@ -78,9 +78,20 @@ export const login = async (req: Request, res: Response) => {
       })
     }
 
-    // Find admin
+    // Find admin with all fields
     const admin = await prisma.admin.findUnique({
       where: { email },
+      select: {
+        id: true,
+        email: true,
+        password: true,
+        name: true,
+        about: true,
+        workAssign: true,
+        avatarUrl: true,
+        createdAt: true,
+        updatedAt: true,
+      },
     })
 
     if (!admin) {
@@ -229,9 +240,20 @@ export const changePassword = async (req: Request, res: Response) => {
       })
     }
 
-    // Get admin with password
+    // Get admin with all fields
     const admin = await prisma.admin.findUnique({
       where: { id: req.admin.id },
+      select: {
+        id: true,
+        email: true,
+        password: true,
+        name: true,
+        about: true,
+        workAssign: true,
+        avatarUrl: true,
+        createdAt: true,
+        updatedAt: true,
+      },
     })
 
     if (!admin) {
@@ -257,7 +279,7 @@ export const changePassword = async (req: Request, res: Response) => {
     // Update password
     await prisma.admin.update({
       where: { id: req.admin.id },
-      data: { password: hashedPassword },
+      data: { password: hashedPassword } as any,
     })
 
     res.json({
